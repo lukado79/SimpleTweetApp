@@ -2,6 +2,8 @@ package pl.coderslab.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,13 +35,13 @@ public class TweetController {
 	}
 
 	@GetMapping("/tweet/add")
-	public String addUser(Model model) {
+	public String addTweet(Model model) {
 		tweetService.addUser(model);
 		return "addTweet";
 	}
 
 	@PostMapping("/tweet/add")
-	public String addUsers(Tweet tweet, BindingResult result) {
+	public String addTeet(@Valid @ModelAttribute Tweet tweet, BindingResult result) {
 		return tweetService.addUsers(tweet, result);
 
 	}
