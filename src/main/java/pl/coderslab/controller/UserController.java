@@ -25,6 +25,10 @@ public class UserController {
 		return "allUsers";
 
 	}
+	
+	public String deleteUser(@PathVariable long id) {
+		return userService.deleteUser(id);
+	}
 
 	@GetMapping("user/add")
 	public String addUser(Model model) {

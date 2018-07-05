@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import pl.coderslab.entity.Tweet;
@@ -16,20 +17,19 @@ import pl.coderslab.service.TweetService;
 
 @Controller
 public class TweetController {
-	
+
 	@Autowired
 	TweetService tweetService;
-	
+
 	@GetMapping("/user/{id}/tweets")
-	public String userTweets( long id, Model model) {
-		tweetService.userTweets(id, model);
-		return "userTweets";
+	public String userTweets(@PathVariable long id, Model model) {
+		return tweetService.userTweets(id, model);
+
 	}
 
 	@GetMapping("/user/search-tweets/{title}")
-	public String searchTweets(String title, Model model) {
-		tweetService.searchTweets(title, model);
-		return "searchTweet";
+	public String searchTweets(@PathVariable String title, Model model) {
+		return tweetService.searchTweets(title, model);
 	}
 
 	@GetMapping("/tweet/add")
@@ -42,7 +42,6 @@ public class TweetController {
 	public String addUsers(Tweet tweet, BindingResult result) {
 		return tweetService.addUsers(tweet, result);
 
-
 	}
 
 	@GetMapping("/tweet/all")
@@ -53,7 +52,7 @@ public class TweetController {
 	}
 
 	@GetMapping("tweet/delete/{id}")
-	public String deleteTweet(long id) {
+	public String deleteTweet(@PathVariable long id) {
 		tweetService.deleteTweet(id);
 		return "redirect:/tweet/all";
 	}
@@ -61,7 +60,7 @@ public class TweetController {
 	@ModelAttribute("user")
 	public List<User> getUsers() {
 		return tweetService.getUsers();
-	
+
 	}
 
 }
