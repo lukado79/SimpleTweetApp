@@ -36,8 +36,8 @@ public class TweetController {
 
 	@GetMapping("/tweet/add")
 	public String addTweet(Model model) {
-		tweetService.addUser(model);
-		return "addTweet";
+		return tweetService.addUser(model);
+
 	}
 
 	@PostMapping("/tweet/add")
@@ -48,15 +48,14 @@ public class TweetController {
 
 	@GetMapping("/tweet/all")
 	public String allTweets(Model model) {
-		tweetService.allTweets(model);
-		return "allTweets";
+		return tweetService.allTweets(model);
 
 	}
 
 	@GetMapping("tweet/delete/{id}")
 	public String deleteTweet(@PathVariable long id) {
-		tweetService.deleteTweet(id);
-		return "redirect:/tweet/all";
+		return tweetService.deleteTweet(id);
+
 	}
 
 	@ModelAttribute("user")
