@@ -38,7 +38,7 @@ public class UserController {
 	}
 
 	@PostMapping("user/add")
-	public String addUsers(@Valid @ModelAttribute User user, BindingResult result) {
+	public String addUser(@Valid @ModelAttribute User user, BindingResult result) {
 		return userService.addUsers(user, result);
 
 	}

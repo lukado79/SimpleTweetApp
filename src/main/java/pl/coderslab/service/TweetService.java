@@ -44,13 +44,13 @@ public class TweetService {
 	}
 
 
-	public String addUser(Model model) {
+	public String addTweet(Model model) {
 		model.addAttribute("tweet", new Tweet());
 		return "addTweet";
 	}
 
 
-	public String addUsers(@Valid @ModelAttribute Tweet tweet, BindingResult result) {
+	public String addTweet(@Valid @ModelAttribute Tweet tweet, BindingResult result) {
 		if (result.hasErrors()) {
 			return "addTweet";
 		}

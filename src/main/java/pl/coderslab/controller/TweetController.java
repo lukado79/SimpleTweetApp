@@ -36,13 +36,13 @@ public class TweetController {
 
 	@GetMapping("/tweet/add")
 	public String addTweet(Model model) {
-		return tweetService.addUser(model);
+		return tweetService.addTweet(model);
 
 	}
 
 	@PostMapping("/tweet/add")
-	public String addTeet(@Valid @ModelAttribute Tweet tweet, BindingResult result) {
-		return tweetService.addUsers(tweet, result);
+	public String addTweet(@Valid @ModelAttribute Tweet tweet, BindingResult result) {
+		return tweetService.addTweet(tweet, result);
 
 	}
 
