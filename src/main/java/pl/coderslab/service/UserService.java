@@ -1,15 +1,10 @@
 package pl.coderslab.service;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-
 import pl.coderslab.entity.User;
 import pl.coderslab.repository.UserRepository;
 
@@ -26,7 +21,7 @@ public class UserService {
 
 	}
 	
-	public String deleteUser(@PathVariable long id) {
+	public String deleteUser(long id) {
 		userRepository.deleteById(id);
 		return "redirect:/user/all";
 	}
@@ -36,7 +31,7 @@ public class UserService {
 		return "addUser";
 	}
 	
-	public String addUsers(@Valid @ModelAttribute User user, BindingResult result) {
+	public String addUsers(User user, BindingResult result) {
 		if (result.hasErrors()) {
 			return "addUser";
 		}
@@ -45,13 +40,13 @@ public class UserService {
 
 	}
 	
-	public String editUser(Model model, @PathVariable long id) {
+	public String editUser(Model model, long id) {
 		User user = userRepository.findOne(id);
 		model.addAttribute("user", user);
 		return "editUser";
 	}
 	
-	public String updatePost(@Valid @ModelAttribute User user, BindingResult result) {
+	public String updatePost(User user, BindingResult result) {
 	    if (result.hasErrors()) {
 	        return "editUser";
 	    } else {

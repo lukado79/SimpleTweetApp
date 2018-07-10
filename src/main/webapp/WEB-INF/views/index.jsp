@@ -15,8 +15,8 @@
 
 
 	<h4>
-		<a href="/SimpleTweetApp/user/search-tweets/{title}">Tweets by title
-			</a>
+		<a href="/SimpleTweetApp/user/search-tweets/{title}">Tweets by
+			title </a>
 	</h4>
 
 	<h4>

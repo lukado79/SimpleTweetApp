@@ -30,14 +30,14 @@ public class TweetService {
 	private UserRepository userRepository;
 	
 
-	public String userTweets(@PathVariable long id, Model model) {
+	public String userTweets(long id, Model model) {
 		List<Tweet> tweet = tweetRepository.findAllByUserId(id);
 		model.addAttribute("tweet", tweet);
 		return "userTweets";
 	}
 
 
-	public String searchTweets(@PathVariable String title, Model model) {
+	public String searchTweets(String title, Model model) {
 		List<Tweet> tweets = tweetRepository.findAllWhereTweetLikeOrderByCreated(title);
 		model.addAttribute("tweets", tweets);
 		return "searchTweet";
@@ -50,7 +50,7 @@ public class TweetService {
 	}
 
 
-	public String addTweet(@Valid @ModelAttribute Tweet tweet, BindingResult result) {
+	public String addTweet(Tweet tweet, BindingResult result) {
 		if (result.hasErrors()) {
 			return "addTweet";
 		}
@@ -68,7 +68,7 @@ public class TweetService {
 	}
 
 
-	public String deleteTweet(@PathVariable long id) {
+	public String deleteTweet(long id) {
 		tweetRepository.deleteById(id);
 		return "redirect:/tweet/all";
 	}
