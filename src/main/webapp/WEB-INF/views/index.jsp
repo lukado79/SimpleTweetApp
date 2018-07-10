@@ -36,5 +36,13 @@
 	<h4>
 		<a href="/SimpleTweetApp/tweet/all">List of tweets</a>
 	</h4>
+
+	<h4>
+		<a href="/SimpleTweetApp/userRole/add">Add User Role</a>
+	</h4>
+
+	<h4>
+		<a href="/SimpleTweetApp/userRole/all">All User Role</a>
+	</h4>
 </body>
 </html>

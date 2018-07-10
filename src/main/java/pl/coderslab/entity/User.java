@@ -8,10 +8,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.mindrot.jbcrypt.BCrypt;
 
 @Entity
 @Table(name = "tweeter_user")
@@ -25,9 +29,24 @@ public class User {
 	private String lastName;
 	@Email
 	private String email;
+	
+	@NotEmpty
+	private String password;
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Tweet> tweets = new ArrayList<>();
+
+	@ManyToOne
+	@JoinColumn(name = "userRole_id")
+	private UserRole role;
+
+	public UserRole getRole() {
+		return role;
+	}
+
+	public void setRole(UserRole role) {
+		this.role = role;
+	}
 
 	public long getId() {
 		return id;
@@ -68,5 +87,15 @@ public class User {
 	public void setTweets(List<Tweet> tweets) {
 		this.tweets = tweets;
 	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = BCrypt.hashpw(password, BCrypt.gensalt());
+	}
+	
+	
 
 }

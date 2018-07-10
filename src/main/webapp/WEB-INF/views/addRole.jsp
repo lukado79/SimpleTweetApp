@@ -11,25 +11,19 @@
 	href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
 </head>
 <body>
-	<h1>Add new User</h1>
+	<h1>Add new User Role</h1>
 
 	<div class="form-group">
-		<form:form method="post" modelAttribute="user">
-			First Name:<form:errors path="firstName" />
-			<form:input path="firstName" />
-			Last Name:<form:errors path="lastName" />
-			<form:input path="lastName" />
-			Email:<form:errors path="email" />
-			<form:input path="email" />
-			Password:<form:errors path="password"/>
-			<form:input path="password"/>
-			Role:<form:select path="role.id" itemValue="id" itemLabel="userRole"
-				items="${role}" />
+		<form:form method="post" modelAttribute="userRole">
+			User Role:<form:errors path="userRole" />
+			<form:input path="userRole" />
 			<input type="submit" value="Save">
 		</form:form>
 	</div>
 	<h4>
 		<a href="/SimpleTweetApp/home">Back to Home</a>
 	</h4>
+
+
 </body>
 </html>
