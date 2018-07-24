@@ -1,14 +1,9 @@
 package pl.coderslab.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -21,17 +16,6 @@ public class UserRole {
 	private Long id;
 	@NotEmpty
 	private String userRole;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	private List<UserRole> userRoles = new ArrayList<>();
-
-	public List<UserRole> getUserRoles() {
-		return userRoles;
-	}
-
-	public void setUserRoles(List<UserRole> userRoles) {
-		this.userRoles = userRoles;
-	}
 
 	public Long getId() {
 		return id;
@@ -48,6 +32,5 @@ public class UserRole {
 	public void setUserRole(String userRole) {
 		this.userRole = userRole;
 	}
-
 
 }

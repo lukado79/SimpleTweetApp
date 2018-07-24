@@ -21,6 +21,7 @@ import pl.coderslab.service.UserService;
 public class UserController {
 	@Autowired
 	UserService userService;
+	
 
 	@GetMapping("user/all")
 	public String allUsers(Model model) {
@@ -53,8 +54,8 @@ public class UserController {
 	}
 
 	@PostMapping("user/edit/{id}")
-	public String updatePost(@Valid @ModelAttribute User user, BindingResult result) {
-		return userService.updatePost(user, result);
+	public String editUser(@Valid @ModelAttribute User user, BindingResult result) {
+		return userService.editUser(user, result);
 	}
 
 	@ModelAttribute("role")

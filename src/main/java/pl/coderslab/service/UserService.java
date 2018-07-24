@@ -53,7 +53,7 @@ public class UserService {
 		return "editUser";
 	}
 	
-	public String updatePost(User user, BindingResult result) {
+	public String editUser(User user, BindingResult result) {
 	    if (result.hasErrors()) {
 	        return "editUser";
 	    } else {
