@@ -27,6 +27,7 @@
 			<th>Last Name</th>
 			<th>Email</th>
 			<th>Actions</th>
+			<th>Tweets</th>
 		</tr>
 		<c:forEach items="${users}" var="boo">
 			<tr>
@@ -34,10 +35,10 @@
 				<td>${boo.firstName}</td>
 				<td>${boo.lastName}</td>
 				<td>${boo.email}</td>
-				<td>
-					<a href="<c:url   value="/user/edit/${boo.id}"/>">Edit</a>
-					<a href="<c:url   value="/user/delete/${boo.id}"/>">Delete</a> 
-					
+				<td><a href="<c:url   value="/user/edit/${boo.id}"/>">Edit</a>
+					<a href="<c:url   value="/user/delete/${boo.id}"/>">Delete</a></td>
+				<td><a href="<c:url   value="/user/${boo.id}/tweets"/>">Tweets of User</a></td>
+
 			</tr>
 		</c:forEach>
 

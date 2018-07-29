@@ -10,11 +10,6 @@
 	<h1>Home</h1>
 
 	<h4>
-		<a href="/SimpleTweetApp/user/{id}/tweets/">Tweets by Id</a>
-	</h4>
-
-
-	<h4>
 		<a href="/SimpleTweetApp/user/search-tweets/{title}">Tweets by
 			title </a>
 	</h4>
