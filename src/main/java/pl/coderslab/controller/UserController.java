@@ -14,14 +14,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import pl.coderslab.entity.User;
-import pl.coderslab.entity.UserRole;
 import pl.coderslab.service.UserService;
 
 @Controller
 public class UserController {
 	@Autowired
 	UserService userService;
-	
 
 	@GetMapping("user/all")
 	public String allUsers(Model model) {
@@ -58,9 +56,4 @@ public class UserController {
 		return userService.editUser(user, result);
 	}
 
-	@ModelAttribute("role")
-	public List<UserRole> getUsers() {
-		return userService.getUserRoles();
-
-	}
 }

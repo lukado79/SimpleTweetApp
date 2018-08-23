@@ -16,14 +16,14 @@
 
 	<div class="form-group">
 		<form:form method="post" modelAttribute="user">
+			Username:<form:errors path="username" />
+			<form:input path="firstName" />
 			First Name:<form:errors path="firstName" />
 			<form:input path="firstName" />
 			Last Name:<form:errors path="lastName" />
 			<form:input path="lastName" />
 			Email:<form:errors path="email" />
 			<form:input path="email" />
-			Role:<form:select path="role.id" itemValue="id"
-			itemLabel="userRole" items="${role}" />
 			<input type="submit" value="Save">
 		</form:form>
 	</div>

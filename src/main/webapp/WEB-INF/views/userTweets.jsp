@@ -29,7 +29,7 @@
 
 	<h4>
 		<a href="/SimpleTweetApp/user/all">Back to Users List</a>
-s	</h4>
+	</h4>
 
 </body>
 </html>

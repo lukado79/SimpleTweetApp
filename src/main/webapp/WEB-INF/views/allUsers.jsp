@@ -23,6 +23,7 @@
 	<table>
 		<tr class="table-active">
 			<th>Id</th>
+			<th>Username</th>
 			<th>First Name</th>
 			<th>Last Name</th>
 			<th>Email</th>
@@ -32,6 +33,7 @@
 		<c:forEach items="${users}" var="boo">
 			<tr>
 				<td>${boo.id}</td>
+				<td>${boo.username}</td>
 				<td>${boo.firstName}</td>
 				<td>${boo.lastName}</td>
 				<td>${boo.email}</td>

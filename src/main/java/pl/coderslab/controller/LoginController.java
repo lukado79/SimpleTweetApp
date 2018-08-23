@@ -20,17 +20,14 @@ public class LoginController {
 	@Autowired
 	private UserService userService;
 
-
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
 	@GetMapping("/login")
 	public String login(Model model) {
-
 		if (SecurityContextHolder.getContext().getAuthentication().isAuthenticated()
 				&& !(SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken)) {
 			return "redirect:/home";
-
 		}
 		model.addAttribute(new User());
 		return "login";

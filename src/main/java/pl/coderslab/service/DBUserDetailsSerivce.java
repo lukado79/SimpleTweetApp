@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import pl.coderslab.entity.User;
 import pl.coderslab.repository.UserRepository;
+
 @Service
 public class DBUserDetailsSerivce implements UserDetailsService {
 
@@ -15,10 +16,10 @@ public class DBUserDetailsSerivce implements UserDetailsService {
 	UserRepository userRepo;
 
 	@Override
-	public UserDetails loadUserByUsername(String lastName) throws UsernameNotFoundException {
-		User user = userRepo.findByLastName(lastName);
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		User user = userRepo.findByUsername(username);
 		UserDetails userDetails = org.springframework.security.core.userdetails.User.builder()
-				.username(user.getLastName()).password(user.getPassword()).roles(user.getRole().getUserRole()).build();
+				.username(user.getLastName()).password(user.getPassword()).build();
 
 		return userDetails;
 	}
