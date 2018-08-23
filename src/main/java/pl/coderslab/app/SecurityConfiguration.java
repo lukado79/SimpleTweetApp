@@ -23,8 +23,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/login", "/register").permitAll().anyRequest().authenticated().and()
-				.formLogin().loginPage("/login").loginProcessingUrl("/login").usernameParameter("")
-				.passwordParameter("").and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logut")).and()
+				.formLogin().loginPage("/login").loginProcessingUrl("/login").usernameParameter("email")
+				.passwordParameter("password").and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logut")).and()
 				.httpBasic();
 	}
 
