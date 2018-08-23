@@ -12,19 +12,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import pl.coderslab.entity.User;
-import pl.coderslab.entity.UserRole;
-import pl.coderslab.service.UserRoleService;
 import pl.coderslab.service.UserService;
 
 @Controller
 public class LoginController {
-	
+
 	@Autowired
 	private UserService userService;
-	
-	@Autowired
-	private UserRole userRole;
-	
+
+
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
@@ -43,9 +39,7 @@ public class LoginController {
 
 	@PostMapping("/register")
 	public String register(@ModelAttribute User user, BindingResult result) {
-		userRole.setUserRole("user");
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
-		user.setRole(userRole);
 		userService.addUsers(user, result);
 		return "home";
 	}
