@@ -37,7 +37,12 @@
 				<td>${boo.user.firstName}</td>
 				<td>${boo.user.lastName}</td>
 				<td><a href="<c:url   value="/tweet/delete/${boo.id}"/>">Delete</a></td>
-
+			</tr>
+			<tr class="table-active">
+				<td>Comments</td>
+			</tr>
+				<tr class="table-active">
+				<td>Add Comments</td>
 			</tr>
 		</c:forEach>
 

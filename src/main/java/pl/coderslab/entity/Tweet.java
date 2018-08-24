@@ -1,12 +1,16 @@
 package pl.coderslab.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -26,6 +30,10 @@ public class Tweet {
 	private String tweetText;
 
 	private Date created = new Date();
+	
+	@OneToMany(mappedBy = "tweet", cascade = CascadeType.ALL)
+	private List<Comments> comments= new ArrayList<>();
+
 	@ManyToOne
 	private User user;
 
@@ -68,5 +76,14 @@ public class Tweet {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	public List<Comments> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comments> comments) {
+		this.comments = comments;
+	}
+	
 
 }

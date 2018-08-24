@@ -33,6 +33,9 @@ public class User {
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Tweet> tweets = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private List<Comments> comments = new ArrayList<>();
 
 	public long getId() {
 		return id;
@@ -89,6 +92,16 @@ public class User {
 	public void setTweets(List<Tweet> tweets) {
 		this.tweets = tweets;
 	}
+
+	public List<Comments> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comments> comments) {
+		this.comments = comments;
+	}
+	
+	
 
 	
 
