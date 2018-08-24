@@ -40,7 +40,7 @@ public class CommentsService {
 		return "addComment";
 	}
 	
-	public String addComment(Comments comment, BindingResult result, @PathVariable Long id, Principal principal) {
+	public String addComment(Comments comment, BindingResult result, @PathVariable long id, Principal principal) {
 		if(result.hasErrors()) {
 			return "addComment";
 		}
