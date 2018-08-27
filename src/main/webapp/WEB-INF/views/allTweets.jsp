@@ -42,7 +42,7 @@
 				<td>Comments</td>
 			</tr>
 				<tr class="table-active">
-				<td>Add Comments</td>
+				<td><a href="/SimpleTweetApp/comment/add">Add Comments</a></td>
 			</tr>
 		</c:forEach>
 
