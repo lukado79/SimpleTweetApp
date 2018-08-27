@@ -29,7 +29,7 @@ public class CommentsService {
 	TweetRepository tweetRepository;
 
 	public String findAllComments(Model model) {
-		List<Comments> comment = commentsRepository.findAllOrderByCreatedDesc();
+		List<Comments> comment = commentsRepository.findOrderByCreated();
 		model.addAttribute("comments", comment);
 		return "allTweets";
 

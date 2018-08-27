@@ -32,7 +32,7 @@ public class CommentsController {
 		return commentsService.addComment(comment, result, id, principal);
 	}
 	
-	@GetMapping("/tweet/all")
+	@GetMapping("/comments/all")
 	public String allComments(Model model) {
 		return commentsService.findAllComments(model);
 	}
