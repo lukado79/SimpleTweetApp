@@ -10,14 +10,7 @@
 	href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
 </head>
 <body>
-	<h1>All Tweets List</h1>
-
-	<h4>
-		<a href="/SimpleTweetApp/tweet/add">Add Tweet</a>
-
-
-	</h4>
-
+	<h1>Comments</h1>
 	<table>
 		<tr class="table-active">
 			<th>Id</th>
@@ -25,32 +18,33 @@
 			<th>Tweet Text</th>
 			<th>Created</th>
 			<th>User Name</th>
-			<th>Action</th>
 		</tr>
-		<c:forEach items="${tweet}" var="boo">
+		<tr>
+			<td>${tweet.id}</td>
+			<td>${tweet.title}</td>
+			<td>${tweet.tweetText}</td>
+			<td>${tweet.created}</td>
+			<td>${tweet.user.username}</td>
+		</tr>
+		<tr>
+			<td>Comments</td>
+		</tr>
+		<tr>
+			<td>Id</td>
+			<td>Text</td>
+			<td>Created</td>
+			<td>User Name</td>
+		</tr>
+		<c:forEach items="${comments}" var="boo">
 			<tr>
 				<td>${boo.id}</td>
-				<td>${boo.title}</td>
-				<td>${boo.tweetText}</td>
+				<td>${boo.text}</td>
 				<td>${boo.created}</td>
 				<td>${boo.user.username}</td>
-				<td><a href="<c:url   value="/tweet/delete/${boo.id}"/>">Delete</a></td>
 			</tr>
-			<tr class="table-active">
-				<td>Comments</td>
-			</tr>
-			<tr class="table-active">
-				<td><a href="/SimpleTweetApp/comment/add">Add Comments</a></td>
-			</tr>
+
+
 		</c:forEach>
-
 	</table>
-
-	<h4>
-		<a href="/SimpleTweetApp/home">Back to Home</a>
-
-
-	</h4>
-
 </body>
 </html>

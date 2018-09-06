@@ -31,7 +31,7 @@ public class CommentsService {
 	public String findAllComments(Model model) {
 		List<Comments> comment = commentsRepository.findOrderByCreated();
 		model.addAttribute("comments", comment);
-		return "allTweets";
+		return "comments";
 
 	}
 	
@@ -47,12 +47,12 @@ public class CommentsService {
 		comment.setUser(userRepository.findByUsername(principal.getName()));
 		comment.setTweet(tweetRepository.findById(id));
 		commentsRepository.save(comment);
-		return "redirect:/tweet/all";
+		return "redirect:/comments/all";
 	}
 
 	public String deleteComment(long id) {
 		commentsRepository.deleteById(id);
-		return "redirect:/tweet/all";
+		return "redirect:/comments/all";
 
 	}
 	
