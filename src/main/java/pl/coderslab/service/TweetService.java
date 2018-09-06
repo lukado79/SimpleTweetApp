@@ -68,6 +68,12 @@ public class TweetService {
 		tweetRepository.deleteById(id);
 		return "redirect:/tweet/all";
 	}
+	
+	public String tweetById(long id, Model model) {
+		Tweet tweet = tweetRepository.findById(id);
+		model.addAttribute("comment", tweet);
+		return "comments";
+	}
 
 	
 	public List<User> getUsers() {

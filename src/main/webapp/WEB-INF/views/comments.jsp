@@ -20,11 +20,11 @@
 			<th>User Name</th>
 		</tr>
 		<tr>
-			<td>${tweet.id}</td>
-			<td>${tweet.title}</td>
-			<td>${tweet.tweetText}</td>
-			<td>${tweet.created}</td>
-			<td>${tweet.user.username}</td>
+			<td>${comment.id}</td>
+			<td>${commentt.title}</td>
+			<td>${comment.tweetText}</td>
+			<td>${comment.created}</td>
+			<td>${comment.user.username}</td>
 		</tr>
 		<tr>
 			<td>Comments</td>
@@ -35,7 +35,7 @@
 			<td>Created</td>
 			<td>User Name</td>
 		</tr>
-		<c:forEach items="${comments}" var="boo">
+		<c:forEach items="${tweet.comments}" var="boo">
 			<tr>
 				<td>${boo.id}</td>
 				<td>${boo.text}</td>

@@ -37,7 +37,7 @@
 				<td><a href="<c:url   value="/tweet/delete/${boo.id}"/>">Delete</a></td>
 			</tr>
 			<tr class="table-active">
-				<td>Comments</td>
+				<td><a href="/SimpleTweetApp/tweet/findId/${boo.id}">Comments</a></td>
 			</tr>
 			<tr class="table-active">
 				<td><a href="/SimpleTweetApp/comment/add">Add Comments</a></td>

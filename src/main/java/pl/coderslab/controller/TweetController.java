@@ -57,6 +57,11 @@ public class TweetController {
 		return tweetService.deleteTweet(id);
 
 	}
+	
+	@GetMapping("tweet/findId/{id}")
+	public String tweetById(@PathVariable long id, Model model) {
+		return tweetService.tweetById(id, model);
+	}
 
 	@ModelAttribute("user")
 	public List<User> getUsers() {
