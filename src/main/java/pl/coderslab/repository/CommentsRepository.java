@@ -17,5 +17,6 @@ public interface CommentsRepository extends JpaRepository<Comments, Long> {
 
 	@Query("SELECT a FROM Comments a ORDER BY a.created DESC")
 	List<Comments> findOrderByCreated();
+	
 
 }

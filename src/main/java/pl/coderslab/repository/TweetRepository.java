@@ -22,5 +22,7 @@ public interface TweetRepository extends JpaRepository<Tweet, Long> {
 	
 	void deleteById(long id);
 	
+	List<Tweet> findAllById(long id);
+	
 	Tweet findById(long id);
 }

@@ -40,7 +40,7 @@
 				<td><a href="/SimpleTweetApp/tweet/findId/${boo.id}">Comments</a></td>
 			</tr>
 			<tr class="table-active">
-				<td><a href="/SimpleTweetApp/comment/add">Add Comments</a></td>
+				<td><a href="/SimpleTweetApp/comment/add/${boo.id}">Add Comments</a></td>
 			</tr>
 		</c:forEach>
 

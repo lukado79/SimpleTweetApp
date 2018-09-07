@@ -70,7 +70,7 @@ public class TweetService {
 	}
 	
 	public String tweetById(long id, Model model) {
-		Tweet tweet = tweetRepository.findById(id);
+		List<Tweet> tweet = tweetRepository.findAllById(id);
 		model.addAttribute("comment", tweet);
 		return "comments";
 	}

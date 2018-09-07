@@ -19,7 +19,7 @@ public class DBUserDetailsSerivce implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userRepo.findByUsername(username);
 		UserDetails userDetails = org.springframework.security.core.userdetails.User.builder()
-				.username(user.getLastName()).password(user.getPassword()).build();
+				.username(user.getUsername()).password(user.getPassword()).roles().build();
 
 		return userDetails;
 	}

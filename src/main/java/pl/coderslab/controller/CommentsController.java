@@ -22,12 +22,12 @@ public class CommentsController {
 	@Autowired
 	CommentsService commentsService;
 
-	@GetMapping("/comment/add")
+	@GetMapping("/comment/add/{id}")
 	public String addComment(Model model) {
 		return commentsService.addComment(model);
 
 	}
-	@PostMapping("/comment/add")
+	@PostMapping("/comment/add/{id}")
 	public String addComment(@Valid @ModelAttribute Comments comment, BindingResult result, @PathVariable long id, Principal principal) {
 		return commentsService.addComment(comment, result, id, principal);
 	}
