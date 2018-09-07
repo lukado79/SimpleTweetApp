@@ -38,6 +38,6 @@ public class LoginController {
 	public String register(@ModelAttribute User user, BindingResult result) {
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		userService.addUsers(user, result);
-		return "home";
+		return "redirect:/login";
 	}
 }
