@@ -11,8 +11,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import pl.coderslab.service.DBUserDetailsSerivce;
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -22,10 +20,24 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/login", "/register").permitAll().anyRequest().authenticated().and()
-				.formLogin().loginPage("/login").loginProcessingUrl("/login").usernameParameter("username")
-				.passwordParameter("password").and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logut")).and()
-				.httpBasic();
+		http.authorizeRequests()
+		.antMatchers("/login", "/register")
+		.permitAll()
+		.anyRequest()
+		.authenticated()
+		.and()
+		.formLogin()
+		.loginPage("/login")
+		.loginProcessingUrl("/login")
+		.usernameParameter("username")
+		.passwordParameter("password")
+		.and()
+		.logout()
+		.logoutRequestMatcher(new AntPathRequestMatcher("/logut"))
+		.invalidateHttpSession(true)
+		.logoutSuccessUrl("/login")
+		.and()
+		.httpBasic();
 	}
 
 	@Bean

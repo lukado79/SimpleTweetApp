@@ -13,7 +13,7 @@
 <body>
 	<div>
 		<h2>Login</h2>
-		<form method="post" action="/SimpleTweetApp/login">
+		<form method="get" action="login">
 			<input type="text" name="username" placeholder="Enter username">
 			<input type="password" name="password" placeholder="Enter password">
 			<input type="hidden" name="${_csrf.parameterName}"
@@ -23,7 +23,7 @@
 
 	<div>
 		<h2>Register</h2>
-		<form:form action="/SimpleTweetApp/register" method="post"
+		<form:form action="register" method="post"
 			modelAttribute="user">
 			<input path="username" placeholder="Enter username" />
 			<input path="firstName" placeholder="Enter firstname" />

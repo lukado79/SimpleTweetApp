@@ -1,4 +1,4 @@
-package pl.coderslab.service;
+package pl.coderslab.app;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
