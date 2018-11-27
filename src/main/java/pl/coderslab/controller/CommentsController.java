@@ -28,8 +28,8 @@ public class CommentsController {
 
 	}
 	@PostMapping("/comment/add/{id}")
-	public String addComment(@Valid @ModelAttribute Comments comment, BindingResult result, @PathVariable long id, Principal principal) {
-		return commentsService.addComment(comment, result, id, principal);
+	public String addComment(@Valid @ModelAttribute Comments comment, BindingResult result, @PathVariable long id) {
+		return commentsService.addComment(comment, result, id);
 	}
 	
 	@GetMapping("/comments/all")

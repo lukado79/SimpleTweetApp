@@ -26,7 +26,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @ComponentScan(basePackages = "pl.coderslab")
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "pl.coderslab.repository")
-@Import(SecurityConfiguration.class)
+
 public class AppConfig extends WebMvcConfigurerAdapter {
 
 	@Bean

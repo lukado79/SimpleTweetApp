@@ -40,11 +40,11 @@ public class CommentsService {
 		return "addComment";
 	}
 	
-	public String addComment(Comments comment, BindingResult result, @PathVariable long id, Principal principal) {
+	public String addComment(Comments comment, BindingResult result, @PathVariable long id) {
 		if(result.hasErrors()) {
 			return "addComment";
 		}
-		comment.setUser(userRepository.findByUsername(principal.getName()));
+//		comment.setUser(userRepository.findByUsername(principal.getName()));
 		comment.setTweet(tweetRepository.findById(id));
 		commentsRepository.save(comment);
 		return "redirect:/comments/all";
