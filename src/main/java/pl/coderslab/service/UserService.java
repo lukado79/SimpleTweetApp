@@ -54,5 +54,11 @@ public class UserService {
 			return "redirect:/user/all";
 		}
 	}
+	
+	public User findByUsername(String username) {
+		User userName = userRepository.findByUsername(username);
+		return userName;
+		
+	}
 
 }

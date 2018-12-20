@@ -1,7 +1,11 @@
 package pl.coderslab.controller;
 
+import java.nio.file.attribute.UserPrincipalLookupService;
+
 import javax.servlet.http.HttpSession;
 
+import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,11 +14,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.coderslab.entity.User;
+import pl.coderslab.service.UserService;
 
 @Controller
 public class LoginController {
-	
 
+	@Autowired
+	UserService userService;
 
 	@GetMapping("/login")
 	public String login(HttpSession sess, Model model) {
@@ -24,7 +30,18 @@ public class LoginController {
 
 	@PostMapping("login")
 	public String login(@RequestParam String username, @RequestParam String password, HttpSession sess, Model model) {
-		return "index";
+
+		User user;
+
+		user = userService.findByUsername(username);
+		sess.setAttribute("user", user);
+
+		if (BCrypt.checkpw(password, user.getPassword())) {
+			return "index";
+		} else {
+			return "wrongPassword";
+		}
+
 	}
 
 	@GetMapping("/register")
