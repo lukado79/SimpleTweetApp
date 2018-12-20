@@ -24,7 +24,15 @@ public class LoginController {
 
 	@GetMapping("/login")
 	public String login(HttpSession sess, Model model) {
-		return "login";
+
+		if (sess.getAttribute("user") != null) {
+			return "index";
+		} else {
+			sess.invalidate();
+			model.addAttribute("user", new User());
+			return "login";
+
+		}
 
 	}
 
@@ -49,7 +57,7 @@ public class LoginController {
 		return "register";
 	}
 
-	@PostMapping("/registger")
+	@PostMapping("/register")
 	public String register(@ModelAttribute User user, BindingResult result) {
 		return "login";
 	}
