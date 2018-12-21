@@ -36,7 +36,7 @@ public class UserService {
 			return "addUser";
 		}
 		userRepository.save(user);
-		return "redirect:/user/all";
+		return "redirect:/login";
 
 	}
 

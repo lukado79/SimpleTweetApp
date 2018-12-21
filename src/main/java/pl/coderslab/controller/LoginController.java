@@ -1,7 +1,5 @@
 package pl.coderslab.controller;
 
-import java.nio.file.attribute.UserPrincipalLookupService;
-
 import javax.servlet.http.HttpSession;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -36,7 +34,7 @@ public class LoginController {
 
 	}
 
-	@PostMapping("login")
+	@PostMapping("/login")
 	public String login(@RequestParam String username, @RequestParam String password, HttpSession sess, Model model) {
 
 		User user;
@@ -53,13 +51,22 @@ public class LoginController {
 	}
 
 	@GetMapping("/register")
-	public String register(Model model) {
-		return "register";
+	public String register(HttpSession sess, Model model) {
+		
+		if(sess.getAttribute("user") != null) {
+			return "index";
+		}else {
+			sess.invalidate();
+			model.addAttribute("user", new User());
+			return userService.addUser(model);
+		}
+		
+		
 	}
 
 	@PostMapping("/register")
 	public String register(@ModelAttribute User user, BindingResult result) {
-		return "login";
+		return userService.addUsers(user, result);
 	}
 
 }
