@@ -7,14 +7,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
+
 </head>
 <body>
 
 	<h1>Edit User</h1>
 
-	<div class="form-group">
+	<div>
 		<form:form method="post" modelAttribute="user">
 			Username:<form:errors path="username" />
 			<form:input path="firstName" />

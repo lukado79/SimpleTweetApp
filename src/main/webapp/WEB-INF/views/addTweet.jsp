@@ -7,14 +7,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
+
 </head>
 <body>
 
 	<h1>Add new Tweet</h1>
 
-	<div class="form-group">
+	<div>
 		<form:form method="post" modelAttribute="tweet">
 		
 			Ttitle:<form:errors path="title" />

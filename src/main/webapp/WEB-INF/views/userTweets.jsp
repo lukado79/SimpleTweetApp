@@ -6,13 +6,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
+
 </head>
 <body>
 
 	<table>
-		<tr class="table-active">
+		<tr>
 			<th>Title</th>
 			<th>Tweet Text</th>
 

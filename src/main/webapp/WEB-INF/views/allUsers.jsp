@@ -6,9 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
-<link rel="stylesheet"
-	href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
 </head>
 <body>
 
@@ -21,7 +18,7 @@
 	</h4>
 
 	<table>
-		<tr class="table-active">
+		<tr>
 			<th>Id</th>
 			<th>Username</th>
 			<th>First Name</th>
@@ -39,7 +36,8 @@
 				<td>${boo.email}</td>
 				<td><a href="<c:url   value="/user/edit/${boo.id}"/>">Edit</a>
 					<a href="<c:url   value="/user/delete/${boo.id}"/>">Delete</a></td>
-				<td><a href="<c:url   value="/user/${boo.id}/tweets"/>">Tweets of User</a></td>
+				<td><a href="<c:url   value="/user/${boo.id}/tweets"/>">Tweets
+						of User</a></td>
 
 			</tr>
 		</c:forEach>

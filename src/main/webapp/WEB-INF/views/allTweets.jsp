@@ -6,8 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
+
 </head>
 <body>
 	<h1>All Tweets List</h1>
@@ -19,7 +18,7 @@
 	</h4>
 
 	<table>
-		<tr class="table-active">
+		<tr>
 			<th>Id</th>
 			<th>Title</th>
 			<th>Tweet Text</th>
@@ -36,11 +35,12 @@
 				<td>${boo.user.username}</td>
 				<td><a href="<c:url   value="/tweet/delete/${boo.id}"/>">Delete</a></td>
 			</tr>
-			<tr class="table-active">
+			<tr>
 				<td><a href="/SimpleTweetApp/tweet/findId/${boo.id}">Comments</a></td>
 			</tr>
-			<tr class="table-active">
-				<td><a href="/SimpleTweetApp/comment/add/${boo.id}">Add Comments</a></td>
+			<tr>
+				<td><a href="/SimpleTweetApp/comment/add/${boo.id}">Add
+						Comments</a></td>
 			</tr>
 		</c:forEach>
 
