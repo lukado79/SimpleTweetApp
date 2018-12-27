@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.coderslab.entity.User;
+import pl.coderslab.service.TweetService;
 import pl.coderslab.service.UserService;
 
 @Controller
@@ -20,11 +21,14 @@ public class LoginController {
 	@Autowired
 	UserService userService;
 
+	@Autowired
+	TweetService tweetService;
+
 	@GetMapping("/login")
 	public String login(HttpSession sess, Model model) {
 
 		if (sess.getAttribute("user") != null) {
-			return "allTweets";
+			return tweetService.allTweets(model);
 		} else {
 			sess.invalidate();
 			model.addAttribute("user", new User());
@@ -43,7 +47,7 @@ public class LoginController {
 		sess.setAttribute("user", user);
 
 		if (BCrypt.checkpw(password, user.getPassword())) {
-			return "allTweets";
+			return tweetService.allTweets(model);
 		} else {
 			return "wrongPassword";
 		}
@@ -54,7 +58,7 @@ public class LoginController {
 	public String register(HttpSession sess, Model model) {
 
 		if (sess.getAttribute("user") != null) {
-			return "allTweets";
+			return tweetService.allTweets(model);
 		} else {
 			sess.invalidate();
 			model.addAttribute("user", new User());
@@ -66,6 +70,17 @@ public class LoginController {
 	@PostMapping("/register")
 	public String register(@ModelAttribute User user, BindingResult result) {
 		return userService.addUsers(user, result);
+	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpSession sess) {
+		
+		if(sess.getAttribute("user") != null) {
+			sess.invalidate();
+			return "logout";
+		}else {
+			return "home";
+		}
 	}
 
 }
