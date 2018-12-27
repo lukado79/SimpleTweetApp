@@ -56,7 +56,7 @@ public class UserService {
 	}
 	
 	public User findByUsername(String username) {
-		User userName = userRepository.findByUsername(username);
+		User userName = userRepository.findFirstByUsername(username);
 		return userName;
 		
 	}

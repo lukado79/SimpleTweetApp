@@ -24,7 +24,7 @@ public class LoginController {
 	public String login(HttpSession sess, Model model) {
 
 		if (sess.getAttribute("user") != null) {
-			return "index";
+			return "allTweets";
 		} else {
 			sess.invalidate();
 			model.addAttribute("user", new User());
@@ -35,7 +35,7 @@ public class LoginController {
 	}
 
 	@PostMapping("/login")
-	public String login(@RequestParam String username, @RequestParam String password, HttpSession sess, Model model) {
+	public String login(@RequestParam String password, @RequestParam String username, HttpSession sess, Model model) {
 
 		User user;
 
@@ -43,7 +43,7 @@ public class LoginController {
 		sess.setAttribute("user", user);
 
 		if (BCrypt.checkpw(password, user.getPassword())) {
-			return "index";
+			return "allTweets";
 		} else {
 			return "wrongPassword";
 		}
@@ -52,16 +52,15 @@ public class LoginController {
 
 	@GetMapping("/register")
 	public String register(HttpSession sess, Model model) {
-		
-		if(sess.getAttribute("user") != null) {
-			return "index";
-		}else {
+
+		if (sess.getAttribute("user") != null) {
+			return "allTweets";
+		} else {
 			sess.invalidate();
 			model.addAttribute("user", new User());
 			return userService.addUser(model);
 		}
-		
-		
+
 	}
 
 	@PostMapping("/register")

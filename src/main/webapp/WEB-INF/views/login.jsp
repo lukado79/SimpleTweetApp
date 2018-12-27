@@ -16,9 +16,9 @@
 	<div>
 		<form:form method="post" modelAttribute="user">
 			Username 
-			<input path="username" placeholder="Username" />
+			<form:input path="username" placeholder="Username" />
 			Password 
-			<input type="password" path="password" placeholder="Password" />
+			<form:input type="password" path="password" placeholder="Password" />
 			<input type="submit" value="Login" />
 		</form:form>
 	</div>
