@@ -22,6 +22,10 @@
 			<input type="submit" value="Login" />
 		</form:form>
 	</div>
-
+	<div>
+		<h4>
+			<a href="/SimpleTweetApp/home">Back to Home</a>
+		</h4>
+	</div>
 </body>
 </html>
