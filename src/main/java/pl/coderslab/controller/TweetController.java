@@ -92,10 +92,16 @@ public class TweetController {
 
 	}
 
-	// @GetMapping("tweet/findId/{id}")
-	// public String tweetById(@PathVariable long id, Model model) {
-	// return tweetService.tweetById(id, model);
-	// }
+	 @GetMapping("tweet/findId/{id}")
+	 public String tweetById(@PathVariable long id, Model model, HttpSession sess) {
+		 
+		 if(sess.getAttribute("user") != null) {
+			 return tweetService.tweetById(id, model);		 
+		 }else {
+			 return "access";
+		 }
+	 
+	 }
 
 	@ModelAttribute("user")
 	public List<User> getUsers() {

@@ -46,10 +46,14 @@ public class LoginController {
 		user = userService.findByUsername(username);
 		sess.setAttribute("user", user);
 
-		if (BCrypt.checkpw(password, user.getPassword())) {
-			return tweetService.allTweets(model);
-		} else {
-			return "wrongPassword";
+		try {
+			if (BCrypt.checkpw(password, user.getPassword())) {
+				return tweetService.allTweets(model);
+			} else {
+				return "wrongPassword";
+			}
+		} catch (NullPointerException e) {
+			return "WrongData";
 		}
 
 	}

@@ -1,6 +1,6 @@
 package pl.coderslab.service;
 
-import java.security.Principal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +21,10 @@ public class CommentsService {
 
 	@Autowired
 	CommentsRepository commentsRepository;
-	
+
 	@Autowired
 	UserRepository userRepository;
-	
+
 	@Autowired
 	TweetRepository tweetRepository;
 
@@ -34,28 +34,26 @@ public class CommentsService {
 		return "comments";
 
 	}
-	
+
 	public String addComment(Model model) {
 		model.addAttribute("comment", new Comments());
 		return "addComment";
 	}
-	
+
 	public String addComment(Comments comment, BindingResult result, @PathVariable long id) {
-		if(result.hasErrors()) {
+		if (result.hasErrors()) {
 			return "addComment";
 		}
-//		comment.setUser(userRepository.findByUsername(principal.getName()));
+		comment.setCreated(LocalDateTime.now());
 		comment.setTweet(tweetRepository.findById(id));
 		commentsRepository.save(comment);
-		return "redirect:/comments/all";
+		return "redirect:/tweet/all";
 	}
 
 	public String deleteComment(long id) {
 		commentsRepository.deleteById(id);
-		return "redirect:/comments/all";
+		return "redirect:/tweet/all";
 
 	}
-	
-	
 
 }

@@ -34,6 +34,7 @@
 				<td>Text</td>
 				<td>Created</td>
 				<td>User Name</td>
+				<td>Action</td>
 			</tr>
 			<c:forEach items="${tweet.comments}" var="boo">
 				<tr>
@@ -41,6 +42,8 @@
 					<td>${boo.text}</td>
 					<td>${boo.created}</td>
 					<td>${boo.user.username}</td>
+					<td><a href="/SimpleTweetApp/comment/delete/${boo.id}">Delete
+							Comments</a></td>
 				</tr>
 
 
