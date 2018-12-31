@@ -20,9 +20,9 @@
 			<form:input path="title" />
 			Tweet Text:<form:errors path="tweetText" />
 			<form:input path="tweetText" />
-			
-			User: <form:select path="user.id" itemValue="id" itemLabel="lastName"
-				items="${user}" />
+
+			<!-- User: <form:select path="user.id" itemValue="id" itemLabel="lastName"
+				items="${user}" />-->
 			<input type="submit" value="Save">
 		</form:form>
 	</div>

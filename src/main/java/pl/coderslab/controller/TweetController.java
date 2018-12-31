@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.entity.Tweet;
 import pl.coderslab.entity.User;
 import pl.coderslab.repository.TweetRepository;
+import pl.coderslab.repository.UserRepository;
 import pl.coderslab.service.TweetService;
 import pl.coderslab.service.UserService;
 
@@ -28,6 +29,9 @@ public class TweetController {
 
 	@Autowired
 	TweetRepository tweetRepository;
+
+	@Autowired
+	UserRepository userRepository;
 
 	@Autowired
 	UserService userService;
@@ -59,9 +63,16 @@ public class TweetController {
 
 	@PostMapping("/tweet/add")
 	public String addTweet(@Valid @ModelAttribute Tweet tweet, BindingResult result, HttpSession sess) {
+
+		User user;
+
+		user = (User) sess.getAttribute("user");
+
 		if (sess.getAttribute("user") != null) {
+			tweet.setUser(userRepository.findFirstByUsername(user.getUsername()));
 			return tweetService.addTweet(tweet, result);
 		} else {
+
 			return "access";
 		}
 
@@ -92,16 +103,16 @@ public class TweetController {
 
 	}
 
-	 @GetMapping("tweet/findId/{id}")
-	 public String tweetById(@PathVariable long id, Model model, HttpSession sess) {
-		 
-		 if(sess.getAttribute("user") != null) {
-			 return tweetService.tweetById(id, model);		 
-		 }else {
-			 return "access";
-		 }
-	 
-	 }
+	@GetMapping("tweet/findId/{id}")
+	public String tweetById(@PathVariable long id, Model model, HttpSession sess) {
+
+		if (sess.getAttribute("user") != null) {
+			return tweetService.tweetById(id, model);
+		} else {
+			return "access";
+		}
+
+	}
 
 	@ModelAttribute("user")
 	public List<User> getUsers() {
