@@ -19,11 +19,11 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	@GetMapping("user/all")
-	public String allUsers(Model model) {
-		return userService.allUsers(model);
-
-	}
+//	@GetMapping("user/all")
+//	public String allUsers(Model model) {
+//		return userService.allUsers(model);
+//
+//	}
 
 	@GetMapping("user/delete/{id}")
 	public String deleteUser(@PathVariable long id) {
@@ -31,17 +31,17 @@ public class UserController {
 
 	}
 
-	@GetMapping("user/add")
-	public String addUser(Model model) {
-		return userService.addUser(model);
-
-	}
-
-	@PostMapping("user/add")
-	public String addUser(@Valid @ModelAttribute User user, BindingResult result) {
-		return userService.addUsers(user, result);
-
-	}
+//	@GetMapping("user/add")
+//	public String addUser(Model model) {
+//		return userService.addUser(model);
+//
+//	}
+//
+//	@PostMapping("user/add")
+//	public String addUser(@Valid @ModelAttribute User user, BindingResult result) {
+//		return userService.addUsers(user, result);
+//
+//	}
 
 	@GetMapping("user/edit/{id}")
 	public String editUser(Model model, @PathVariable long id) {
